@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package org.itson.pruebas.model;
 
 import java.io.Serializable;
@@ -40,6 +36,13 @@ public class Alumno implements Serializable {
     public Alumno() {
     }
 
+    public Alumno(String nombre, String apellido, String matricula, String correo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.matricula = matricula;
+        this.correo = correo;
+    }
+    
     public Alumno(String nombre, String apellido, String matricula, String correo, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
