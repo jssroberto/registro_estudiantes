@@ -5,7 +5,7 @@
 package org.itson.pruebas.controller;
 
 import java.util.List;
-import org.itson.pruebas.controller.controllerExceptions.ControllerlException;
+import org.itson.pruebas.controller.controllerExceptions.ControllerException;
 import org.itson.pruebas.model.Alumno;
 
 /**
@@ -19,17 +19,17 @@ public interface IConsultaAlumnoController {
      * 
      * @param matricula La matrícula o parte de ella.
      * @return Lista de alumnos que coinciden con la búsqueda.
-     * @throws ControllerlException Si ocurre un error en la consulta.
+     * @throws ControllerException Si ocurre un error en la consulta.
      */
-    List<Alumno> consultarPorMatricula(String matricula) throws ControllerlException;
+    List<Alumno> consultarPorMatricula(String matricula) throws ControllerException;
 
     /**
      * Consulta alumnos por nombre.
      * 
      * @param nombre El nombre o parte de él.
      * @return Lista de alumnos que coinciden con la búsqueda.
-     * @throws ControllerlException Si ocurre un error en la consulta.
+     * @throws ControllerException Si ocurre un error en la consulta.
      */
-    List<Alumno> consultarPorNombre(String nombre) throws ControllerlException;
+    List<Alumno> consultarPorNombre(String nombre) throws ControllerException;
 
 }

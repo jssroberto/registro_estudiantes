@@ -8,12 +8,12 @@ package org.itson.pruebas.view;
  *
  * @author elimo
  */
-public class frmInicioElegirRegistro extends javax.swing.JFrame {
+public class FrmInicioElegirRegistro extends javax.swing.JFrame {
 
     /**
      * Creates new form frmInicioElegirRegistro
      */
-    public frmInicioElegirRegistro() {
+    public FrmInicioElegirRegistro() {
         initComponents();
     }
 
@@ -161,14 +161,14 @@ public class frmInicioElegirRegistro extends javax.swing.JFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-        FrmActualizar frm = new FrmActualizar();
+        FrmBusquedaActualizar frm = new FrmBusquedaActualizar();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        FrmEliminar frm = new FrmEliminar();
+        FrmBusquedaEliminar frm = new FrmBusquedaEliminar();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -190,20 +190,21 @@ public class frmInicioElegirRegistro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmInicioElegirRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmInicioElegirRegistro().setVisible(true);
+                new FrmInicioElegirRegistro().setVisible(true);
             }
         });
     }

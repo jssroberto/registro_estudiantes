@@ -99,7 +99,7 @@ public class FrmInicio extends javax.swing.JFrame {
 
     private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
         // TODO add your handling code here:
-        frmInicioElegirRegistro frm = new frmInicioElegirRegistro();
+        FrmInicioElegirRegistro frm = new FrmInicioElegirRegistro();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrosActionPerformed

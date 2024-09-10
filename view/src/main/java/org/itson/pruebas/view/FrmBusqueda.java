@@ -4,12 +4,17 @@
  */
 package org.itson.pruebas.view;
 
+import javax.swing.JOptionPane;
+import org.itson.pruebas.controller.ConsultaAlumnoController;
+import org.itson.pruebas.controller.IConsultaAlumnoController;
+
 /**
  *
  * @author elimo
  */
 public class FrmBusqueda extends javax.swing.JFrame {
 
+    IConsultaAlumnoController con = new ConsultaAlumnoController();
     /**
      * Creates new form frmInicioElegirRegistro
      */
@@ -30,7 +35,7 @@ public class FrmBusqueda extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDatos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnRegistros1 = new javax.swing.JButton();
         btnBusqueda1 = new javax.swing.JButton();
@@ -59,8 +64,13 @@ public class FrmBusqueda extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1610, 50));
+        txtDatos.setText("jTextField1");
+        txtDatos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDatosKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1610, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -115,7 +125,7 @@ public class FrmBusqueda extends javax.swing.JFrame {
 
     private void btnRegistros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistros1ActionPerformed
         // TODO add your handling code here:
-        frmInicioElegirRegistro frm = new frmInicioElegirRegistro();
+        FrmInicioElegirRegistro frm = new FrmInicioElegirRegistro();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistros1ActionPerformed
@@ -133,6 +143,16 @@ public class FrmBusqueda extends javax.swing.JFrame {
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnInicio1ActionPerformed
+
+    private void txtDatosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosKeyTyped
+        // TODO add your handling code here:
+        try{
+        con.consultarPorMatricula(txtDatos.getText());
+        con.consultarPorNombre(txtDatos.getText());
+        }catch(ControllerException e){
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }//GEN-LAST:event_txtDatosKeyTyped
 
     /**
      * @param args the command line arguments
@@ -179,6 +199,6 @@ public class FrmBusqueda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtDatos;
     // End of variables declaration//GEN-END:variables
 }

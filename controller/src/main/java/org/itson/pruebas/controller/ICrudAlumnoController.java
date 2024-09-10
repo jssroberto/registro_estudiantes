@@ -4,7 +4,7 @@
  */
 package org.itson.pruebas.controller;
 
-import org.itson.pruebas.controller.controllerExceptions.ControllerlException;
+import org.itson.pruebas.controller.controllerExceptions.ControllerException;
 import org.itson.pruebas.exceptions.ModelException;
 import org.itson.pruebas.model.Alumno;
 /**
@@ -17,33 +17,33 @@ public interface ICrudAlumnoController {
      * Registra un nuevo alumno.
      * 
      * @param alumno El alumno a registrar.
-     * @throws ControllerlException Si ocurre un error en el registro.
+     * @throws ControllerException Si ocurre un error en el registro.
      */
-    void registrarAlumno(AlumnoDTO alumno) throws ControllerlException;
+    void registrarAlumno(AlumnoDTO alumno) throws ControllerException;
 
     /**
      * Actualiza la información de un alumno existente.
      * 
      * @param alumno El alumno con la información actualizada.
-     * @throws ControllerlException Si ocurre un error en la actualización.
+     * @throws ControllerException Si ocurre un error en la actualización.
      */
-    void actualizarAlumno(AlumnoDTO alumno) throws ControllerlException;
+    void actualizarAlumno(AlumnoDTO alumno) throws ControllerException;
 
     /**
      * Elimina un alumno.
      * 
      * @param alumno El alumno a eliminar.
-     * @throws ControllerlException Si ocurre un error en la eliminación.
+     * @throws ControllerException Si ocurre un error en la eliminación.
      */
-    void eliminarAlumno(AlumnoDTO alumno) throws ControllerlException;
+    void eliminarAlumno(AlumnoDTO alumno) throws ControllerException;
     
     /**
      * Convierte un AlumnoDTO en una entidad Alumno.
      * 
      * @param alumnoDTO El DTO a convertir.
      * @return La entidad Alumno resultante.
-     * @throws ControllerlException si no se pudo convertir
+     * @throws ControllerException si no se pudo convertir
      */
-    public Alumno convertirDTOAEntidad(AlumnoDTO alumnoDTO) throws ControllerlException;
+    public Alumno convertirDTOAEntidad(AlumnoDTO alumnoDTO) throws ControllerException;
 
 }

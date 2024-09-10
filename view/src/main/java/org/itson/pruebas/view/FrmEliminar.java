@@ -157,7 +157,7 @@ public class FrmEliminar extends javax.swing.JFrame {
 
     private void btnRegistros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistros1ActionPerformed
         // TODO add your handling code here:
-        frmInicioElegirRegistro frm = new frmInicioElegirRegistro();
+        FrmInicioElegirRegistro frm = new FrmInicioElegirRegistro();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistros1ActionPerformed
@@ -178,7 +178,7 @@ public class FrmEliminar extends javax.swing.JFrame {
 
     private void btnRegistros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistros2ActionPerformed
         // TODO add your handling code here:
-        frmInicioElegirRegistro frm = new frmInicioElegirRegistro();
+        FrmInicioElegirRegistro frm = new FrmInicioElegirRegistro();
         frm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistros2ActionPerformed

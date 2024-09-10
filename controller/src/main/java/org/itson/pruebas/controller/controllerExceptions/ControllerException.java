@@ -9,12 +9,12 @@ package org.itson.pruebas.controller.controllerExceptions;
  * @author Roberto García
  * @version 1.0
  */
-public class ControllerlException extends Exception {
+public class ControllerException extends Exception {
 
     /**
      * Crea una nueva {@code ModelException} sin mensaje.
      */
-    public ControllerlException() {
+    public ControllerException() {
         super();
     }
 
@@ -23,7 +23,7 @@ public class ControllerlException extends Exception {
      * 
      * @param message Mensaje que describe el error.
      */
-    public ControllerlException(String message) {
+    public ControllerException(String message) {
         super(message);
     }
 
@@ -33,7 +33,7 @@ public class ControllerlException extends Exception {
      * @param message Mensaje que describe el error.
      * @param cause La causa de la excepción.
      */
-    public ControllerlException(String message, Throwable cause) {
+    public ControllerException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -42,7 +42,7 @@ public class ControllerlException extends Exception {
      * 
      * @param cause La causa de la excepción.
      */
-    public ControllerlException(Throwable cause) {
+    public ControllerException(Throwable cause) {
         super(cause);
     }
 }

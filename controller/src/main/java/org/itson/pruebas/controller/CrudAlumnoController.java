@@ -4,7 +4,7 @@
  */
 package org.itson.pruebas.controller;
 
-import org.itson.pruebas.controller.controllerExceptions.ControllerlException;
+import org.itson.pruebas.controller.controllerExceptions.ControllerException;
 import org.itson.pruebas.daos.IAlumnoDAO;
 import org.itson.pruebas.exceptions.ModelException;
 import org.itson.pruebas.model.Alumno;
@@ -24,14 +24,14 @@ public class CrudAlumnoController implements ICrudAlumnoController{
      * Registra un nuevo alumno.
      *
      * @param alumno El alumno a registrar.
-     * @throws ControllerlException Si ocurre un error en el registro.
+     * @throws ControllerException Si ocurre un error en el registro.
      */
     @Override
-    public void registrarAlumno(AlumnoDTO alumno) throws ControllerlException {
+    public void registrarAlumno(AlumnoDTO alumno) throws ControllerException {
         try {
             alumnoDAO.registrar(convertirDTOAEntidad(alumno));
         } catch (ModelException e) {
-            throw new ControllerlException(e);
+            throw new ControllerException(e);
         }
     }
 
@@ -39,15 +39,15 @@ public class CrudAlumnoController implements ICrudAlumnoController{
      * Actualiza la información de un alumno existente.
      *
      * @param alumno El alumno con la información actualizada.
-     * @throws ControllerlException Si ocurre un error en la actualización.
+     * @throws ControllerException Si ocurre un error en la actualización.
      */
     @Override
-    public void actualizarAlumno(AlumnoDTO alumno) throws ControllerlException {
+    public void actualizarAlumno(AlumnoDTO alumno) throws ControllerException {
         try {
 
             alumnoDAO.actualizar(convertirDTOAEntidad(alumno));
         } catch (ModelException e) {
-            throw new ControllerlException(e);
+            throw new ControllerException(e);
         }
     }
 
@@ -55,14 +55,14 @@ public class CrudAlumnoController implements ICrudAlumnoController{
      * Elimina un alumno.
      *
      * @param alumno El alumno a eliminar.
-     * @throws ControllerlException Si ocurre un error en la eliminación.
+     * @throws ControllerException Si ocurre un error en la eliminación.
      */
     @Override
-    public void eliminarAlumno(AlumnoDTO alumno) throws ControllerlException {
+    public void eliminarAlumno(AlumnoDTO alumno) throws ControllerException {
         try {
             alumnoDAO.eliminar(convertirDTOAEntidad(alumno));
         } catch (ModelException e) {
-            throw new ControllerlException(e);
+            throw new ControllerException(e);
         }
     }
 
@@ -71,10 +71,10 @@ public class CrudAlumnoController implements ICrudAlumnoController{
      *
      * @param alumnoDTO El DTO a convertir.
      * @return La entidad Alumno resultante.
-     * @throws ControllerlException si no se pudo convertir
+     * @throws ControllerException si no se pudo convertir
      */
     @Override
-    public Alumno convertirDTOAEntidad(AlumnoDTO alumnoDTO) throws ControllerlException {
+    public Alumno convertirDTOAEntidad(AlumnoDTO alumnoDTO) throws ControllerException {
 
         Alumno alumno = new Alumno();
 
@@ -89,7 +89,7 @@ public class CrudAlumnoController implements ICrudAlumnoController{
             alumno.setCorreo(alumnoDTO.getCorreo());
             alumno.setDireccion(alumnoDTO.getDireccion());
         } catch (Exception e) {
-            throw new ControllerlException(e);
+            throw new ControllerException(e);
         }
         return alumno;
 

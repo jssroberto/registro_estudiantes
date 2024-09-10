@@ -5,7 +5,8 @@
 package org.itson.pruebas.controller;
 
 import java.util.List;
-import org.itson.pruebas.controller.controllerExceptions.ControllerlException;
+import org.itson.pruebas.controller.controllerExceptions.ControllerException;
+import org.itson.pruebas.daos.AlumnoDAO;
 import org.itson.pruebas.daos.IAlumnoDAO;
 import org.itson.pruebas.exceptions.ModelException;
 import org.itson.pruebas.model.Alumno;
@@ -18,8 +19,9 @@ public class ConsultaAlumnoController implements IConsultaAlumnoController{
 
     private final IAlumnoDAO alumnoDAO;
 
-    public ConsultaAlumnoController(IAlumnoDAO alumnoDAO) {
-        this.alumnoDAO = alumnoDAO;
+    
+    public ConsultaAlumnoController() {
+        alumnoDAO = new AlumnoDAO();
     }
 
     /**
@@ -27,14 +29,14 @@ public class ConsultaAlumnoController implements IConsultaAlumnoController{
      * 
      * @param matricula La matrícula o parte de ella.
      * @return Lista de alumnos que coinciden con la búsqueda.
-     * @throws ControllerlException Si ocurre un error en la consulta.
+     * @throws ControllerException Si ocurre un error en la consulta.
      */
     @Override
-    public List<Alumno> consultarPorMatricula(String matricula) throws ControllerlException {
+    public List<Alumno> consultarPorMatricula(String matricula) throws ControllerException {
         try{
         return alumnoDAO.consultarPorMatricula(matricula);
         }catch(ModelException e){
-            throw new ControllerlException(e);
+            throw new ControllerException(e);
         }
     }
 
@@ -43,14 +45,14 @@ public class ConsultaAlumnoController implements IConsultaAlumnoController{
      * 
      * @param nombre El nombre o parte de él.
      * @return Lista de alumnos que coinciden con la búsqueda.
-     * @throws ControllerlException Si ocurre un error en la consulta.
+     * @throws ControllerException Si ocurre un error en la consulta.
      */
     @Override
-    public List<Alumno> consultarPorNombre(String nombre) throws ControllerlException {
+    public List<Alumno> consultarPorNombre(String nombre) throws ControllerException {
         try{
         return alumnoDAO.consultaPorNombre(nombre);
         }catch(ModelException e){
-            throw new ControllerlException(e);
+            throw new ControllerException(e);
         }
     }
 }
