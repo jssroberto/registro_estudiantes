@@ -24,3 +24,5 @@ hs_err_pid*
 replay_pid*
 /model/target/
 /model/nbproject/
+/view/target/
+/controller/target/

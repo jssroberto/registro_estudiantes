@@ -29,9 +29,6 @@ public class FrmAgregar extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        btnRegistros = new javax.swing.JButton();
-        btnBusqueda = new javax.swing.JButton();
-        btnInicio = new javax.swing.JButton();
         brnBuscar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         txtApellidoP = new javax.swing.JTextField();
@@ -40,26 +37,20 @@ public class FrmAgregar extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtMatricula = new javax.swing.JTextField();
         txtFechaNacimiento = new javax.swing.JTextField();
+        btnRegistros1 = new javax.swing.JButton();
+        btnBusqueda1 = new javax.swing.JButton();
+        btnInicio1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/itson/pruebas/view/Recursos/agregar (2).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agregar (2).png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
         txtNombre.setText("jTextField1");
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 1470, 50));
-
-        btnRegistros.setText("jButton1");
-        jPanel1.add(btnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
-
-        btnBusqueda.setText("jButton1");
-        jPanel1.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
-
-        btnInicio.setText("jButton1");
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
 
         brnBuscar.setText("jButton1");
         jPanel1.add(brnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 60));
@@ -85,6 +76,39 @@ public class FrmAgregar extends javax.swing.JFrame {
         txtFechaNacimiento.setText("jTextField1");
         jPanel1.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 820, 650, 50));
 
+        btnRegistros1.setText("jButton1");
+        btnRegistros1.setBorder(null);
+        btnRegistros1.setBorderPainted(false);
+        btnRegistros1.setContentAreaFilled(false);
+        btnRegistros1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistros1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
+
+        btnBusqueda1.setText("jButton1");
+        btnBusqueda1.setBorder(null);
+        btnBusqueda1.setBorderPainted(false);
+        btnBusqueda1.setContentAreaFilled(false);
+        btnBusqueda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusqueda1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBusqueda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
+
+        btnInicio1.setText("jButton1");
+        btnInicio1.setBorder(null);
+        btnInicio1.setBorderPainted(false);
+        btnInicio1.setContentAreaFilled(false);
+        btnInicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicio1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,6 +122,27 @@ public class FrmAgregar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistros1ActionPerformed
+        // TODO add your handling code here:
+        frmInicioElegirRegistro frm = new frmInicioElegirRegistro();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegistros1ActionPerformed
+
+    private void btnBusqueda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusqueda1ActionPerformed
+        // TODO add your handling code here:
+        FrmBusqueda frm = new FrmBusqueda();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBusqueda1ActionPerformed
+
+    private void btnInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio1ActionPerformed
+        // TODO add your handling code here:
+        FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInicio1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,10 +188,10 @@ public class FrmAgregar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnBuscar;
-    private javax.swing.JButton btnBusqueda;
+    private javax.swing.JButton btnBusqueda1;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnInicio;
-    private javax.swing.JButton btnRegistros;
+    private javax.swing.JButton btnInicio1;
+    private javax.swing.JButton btnRegistros1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellidoM;

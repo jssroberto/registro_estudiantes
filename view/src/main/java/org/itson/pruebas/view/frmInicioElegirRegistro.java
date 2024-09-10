@@ -27,39 +27,95 @@ public class frmInicioElegirRegistro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnActualizar = new javax.swing.JButton();
         btnRegistros = new javax.swing.JButton();
-        btnBusqueda = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
+        btnBusqueda = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        brnActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/itson/pruebas/view/Recursos/Inicia sesión (2).png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
-
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elegirRegistro.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.setFocusable(false);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
 
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicia sesión (2).png"))); // NOI18N
+        btnActualizar.setText("jButton1");
+        btnActualizar.setBorder(null);
+        btnActualizar.setBorderPainted(false);
+        btnActualizar.setContentAreaFilled(false);
+        btnActualizar.setFocusPainted(false);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 350, 320, 120));
+
         btnRegistros.setText("jButton1");
+        btnRegistros.setBorder(null);
+        btnRegistros.setBorderPainted(false);
+        btnRegistros.setContentAreaFilled(false);
+        btnRegistros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrosActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
 
-        btnBusqueda.setText("jButton1");
-        jPanel1.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
-
         btnInicio.setText("jButton1");
+        btnInicio.setBorder(null);
+        btnInicio.setBorderPainted(false);
+        btnInicio.setContentAreaFilled(false);
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
 
-        btnEliminar.setText("jButton1");
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 210, 320, 140));
+        btnBusqueda.setText("jButton1");
+        btnBusqueda.setBorder(null);
+        btnBusqueda.setBorderPainted(false);
+        btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setFocusPainted(false);
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
 
-        brnActualizar.setText("jButton2");
-        jPanel1.add(brnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 360, 320, 120));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicia sesión (2).png"))); // NOI18N
+        btnAgregar.setText("jButton1");
+        btnAgregar.setBorder(null);
+        btnAgregar.setBorderPainted(false);
+        btnAgregar.setContentAreaFilled(false);
+        btnAgregar.setFocusPainted(false);
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 490, 320, 120));
+
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicia sesión (2).png"))); // NOI18N
+        btnEliminar.setText("jButton1");
+        btnEliminar.setBorder(null);
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setFocusPainted(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 220, 320, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,6 +130,48 @@ public class frmInicioElegirRegistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
+        // TODO add your handling code here:
+        FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegistrosActionPerformed
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        // TODO add your handling code here:
+        FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInicioActionPerformed
+
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        // TODO add your handling code here:
+        FrmBusqueda frm = new FrmBusqueda();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBusquedaActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        FrmAgregar frm = new FrmAgregar();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        FrmActualizar frm = new FrmActualizar();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        FrmEliminar frm = new FrmEliminar();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,13 +209,13 @@ public class frmInicioElegirRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnActualizar;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRegistros;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

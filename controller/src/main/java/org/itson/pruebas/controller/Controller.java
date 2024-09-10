@@ -4,6 +4,8 @@
 
 package org.itson.pruebas.controller;
 
+import org.itson.pruebas.view.FrmInicio;
+
 /**
  *
  * @author rover
@@ -11,6 +13,7 @@ package org.itson.pruebas.controller;
 public class Controller {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
     }
 }

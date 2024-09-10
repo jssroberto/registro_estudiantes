@@ -26,16 +26,54 @@ public class FrmEliminar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnRegistros1 = new javax.swing.JButton();
+        btnBusqueda1 = new javax.swing.JButton();
+        btnInicio1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        btnRegistros = new javax.swing.JButton();
-        btnBusqueda = new javax.swing.JButton();
-        btnInicio = new javax.swing.JButton();
         brnBuscar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnRegistros2 = new javax.swing.JButton();
+        btnBusqueda2 = new javax.swing.JButton();
+        btnInicio2 = new javax.swing.JButton();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        btnRegistros1.setText("jButton1");
+        btnRegistros1.setBorder(null);
+        btnRegistros1.setBorderPainted(false);
+        btnRegistros1.setContentAreaFilled(false);
+        btnRegistros1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistros1ActionPerformed(evt);
+            }
+        });
+
+        btnBusqueda1.setText("jButton1");
+        btnBusqueda1.setBorder(null);
+        btnBusqueda1.setBorderPainted(false);
+        btnBusqueda1.setContentAreaFilled(false);
+        btnBusqueda1.setFocusPainted(false);
+        btnBusqueda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusqueda1ActionPerformed(evt);
+            }
+        });
+
+        btnInicio1.setText("jButton1");
+        btnInicio1.setBorder(null);
+        btnInicio1.setBorderPainted(false);
+        btnInicio1.setContentAreaFilled(false);
+        btnInicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicio1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,27 +94,52 @@ public class FrmEliminar extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 1650, 450));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/itson/pruebas/view/Recursos/eliminar.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/eliminar.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
         jTextField1.setText("jTextField1");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1610, 50));
 
-        btnRegistros.setText("jButton1");
-        jPanel1.add(btnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
-
-        btnBusqueda.setText("jButton1");
-        jPanel1.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
-
-        btnInicio.setText("jButton1");
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
-
         brnBuscar.setText("jButton1");
         jPanel1.add(brnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 60));
 
         btnEliminar.setText("jButton1");
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1650, 920, 160, 50));
+
+        btnRegistros2.setText("jButton1");
+        btnRegistros2.setBorder(null);
+        btnRegistros2.setBorderPainted(false);
+        btnRegistros2.setContentAreaFilled(false);
+        btnRegistros2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistros2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegistros2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
+
+        btnBusqueda2.setText("jButton1");
+        btnBusqueda2.setBorder(null);
+        btnBusqueda2.setBorderPainted(false);
+        btnBusqueda2.setContentAreaFilled(false);
+        btnBusqueda2.setFocusPainted(false);
+        btnBusqueda2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusqueda2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBusqueda2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
+
+        btnInicio2.setText("jButton1");
+        btnInicio2.setBorder(null);
+        btnInicio2.setBorderPainted(false);
+        btnInicio2.setContentAreaFilled(false);
+        btnInicio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicio2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnInicio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +154,48 @@ public class FrmEliminar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistros1ActionPerformed
+        // TODO add your handling code here:
+        frmInicioElegirRegistro frm = new frmInicioElegirRegistro();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegistros1ActionPerformed
+
+    private void btnBusqueda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusqueda1ActionPerformed
+        // TODO add your handling code here:
+        FrmBusqueda frm = new FrmBusqueda();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBusqueda1ActionPerformed
+
+    private void btnInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio1ActionPerformed
+        // TODO add your handling code here:
+        FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInicio1ActionPerformed
+
+    private void btnRegistros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistros2ActionPerformed
+        // TODO add your handling code here:
+        frmInicioElegirRegistro frm = new frmInicioElegirRegistro();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegistros2ActionPerformed
+
+    private void btnBusqueda2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusqueda2ActionPerformed
+        // TODO add your handling code here:
+        FrmBusqueda frm = new FrmBusqueda();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBusqueda2ActionPerformed
+
+    private void btnInicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio2ActionPerformed
+        // TODO add your handling code here:
+        FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInicio2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,10 +237,14 @@ public class FrmEliminar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnBuscar;
-    private javax.swing.JButton btnBusqueda;
+    private javax.swing.JButton btnBusqueda1;
+    private javax.swing.JButton btnBusqueda2;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnInicio;
-    private javax.swing.JButton btnRegistros;
+    private javax.swing.JButton btnInicio1;
+    private javax.swing.JButton btnInicio2;
+    private javax.swing.JButton btnRegistros1;
+    private javax.swing.JButton btnRegistros2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

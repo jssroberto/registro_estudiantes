@@ -11,6 +11,7 @@ package org.itson.pruebas.view;
 public class View {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
     }
 }
