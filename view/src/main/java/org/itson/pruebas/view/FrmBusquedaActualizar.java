@@ -4,16 +4,34 @@
  */
 package org.itson.pruebas.view;
 
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import org.itson.pruebas.controller.AlumnoDTO;
+import org.itson.pruebas.controller.ConsultaAlumnoController;
+import org.itson.pruebas.controller.CrudAlumnoController;
+import org.itson.pruebas.controller.IConsultaAlumnoController;
+import org.itson.pruebas.controller.ICrudAlumnoController;
+import org.itson.pruebas.controller.controllerExceptions.ControllerException;
+
 /**
  *
  * @author elimo
  */
 public class FrmBusquedaActualizar extends javax.swing.JFrame {
 
+    IConsultaAlumnoController consultas;
+    ICrudAlumnoController crud;
+
     /**
      * Creates new form frmInicioElegirRegistro
      */
     public FrmBusquedaActualizar() {
+        consultas = new ConsultaAlumnoController();
+        crud = new CrudAlumnoController();
+
         initComponents();
     }
 
@@ -28,9 +46,9 @@ public class FrmBusquedaActualizar extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaAlumnos = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDatos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnRegistros1 = new javax.swing.JButton();
         btnBusqueda1 = new javax.swing.JButton();
@@ -40,18 +58,35 @@ public class FrmBusquedaActualizar extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellidos", "Matricula", "Correo", "Direccion"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaAlumnosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaAlumnos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 1650, 510));
 
@@ -59,8 +94,13 @@ public class FrmBusquedaActualizar extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1610, 50));
+        txtDatos.setText("jTextField1");
+        txtDatos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDatosKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1610, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -134,6 +174,64 @@ public class FrmBusquedaActualizar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnInicio1ActionPerformed
 
+    private void tablaAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaAlumnosMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = tablaAlumnos.getSelectedRow();
+        if (selectedRow != -1) {
+            // Obtener los datos de la fila seleccionada
+            String nombre = tablaAlumnos.getValueAt(selectedRow, 0).toString();
+            String apellido = tablaAlumnos.getValueAt(selectedRow, 1).toString();
+            String matricula = tablaAlumnos.getValueAt(selectedRow, 2).toString();
+            String correo = tablaAlumnos.getValueAt(selectedRow, 3).toString();
+            String direccion = tablaAlumnos.getValueAt(selectedRow, 4).toString();
+
+            // Crear el DTO con los datos seleccionados
+            AlumnoDTO alumnoDTO = new AlumnoDTO(nombre, apellido, matricula, correo, direccion);
+            try {
+                consultas.consultarPorMatricula(matricula);
+                alumnoDTO.setId(consultas.consultarPorMatricula(matricula).get(0).getId());
+                FrmActualizar actualizar = new FrmActualizar(alumnoDTO);
+                actualizar.setVisible(true);
+                this.dispose();
+            } catch (ControllerException ex) {
+                Logger.getLogger(FrmBusquedaEliminar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }//GEN-LAST:event_tablaAlumnosMouseClicked
+
+    private void txtDatosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosKeyTyped
+        // TODO add your handling code here:
+        try {
+            actualizarTablaAlumnos(consultas.consultarPorMatricula(txtDatos.getText()));
+            if (consultas.consultarPorMatricula(txtDatos.getText()).size() < 1) {
+                actualizarTablaAlumnos(consultas.consultarPorNombre(txtDatos.getText()));
+            }
+        } catch (ControllerException e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }//GEN-LAST:event_txtDatosKeyTyped
+
+    public void actualizarTablaAlumnos(List<AlumnoDTO> alumnos) {
+
+        DefaultTableModel modelo = (DefaultTableModel) tablaAlumnos.getModel();
+
+        modelo.setRowCount(0);
+
+        for (AlumnoDTO alumno : alumnos) {
+            Object[] fila = { // ID
+                alumno.getNombre(),
+                alumno.getApellido(),
+                alumno.getMatricula(),
+                alumno.getCorreo(),
+                alumno.getDireccion()
+            };
+            modelo.addRow(fila);
+
+        }
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -184,7 +282,7 @@ public class FrmBusquedaActualizar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tablaAlumnos;
+    private javax.swing.JTextField txtDatos;
     // End of variables declaration//GEN-END:variables
 }

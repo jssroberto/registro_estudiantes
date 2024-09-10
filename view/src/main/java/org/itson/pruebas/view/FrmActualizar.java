@@ -4,9 +4,13 @@
  */
 package org.itson.pruebas.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.itson.pruebas.controller.AlumnoDTO;
 import org.itson.pruebas.controller.CrudAlumnoController;
 import org.itson.pruebas.controller.ICrudAlumnoController;
+import org.itson.pruebas.controller.controllerExceptions.ControllerException;
 
 /**
  *
@@ -14,15 +18,17 @@ import org.itson.pruebas.controller.ICrudAlumnoController;
  */
 public class FrmActualizar extends javax.swing.JFrame {
 
-    AlumnoDTO alumno;
+    AlumnoDTO alumnoDTO;
     ICrudAlumnoController crud;
+
     /**
      * Creates new form frmInicioElegirRegistro
      */
     public FrmActualizar(AlumnoDTO alumno) {
         crud = new CrudAlumnoController();
-        this.alumno=alumno;
+        this.alumnoDTO = alumno;
         initComponents();
+        cargarDatos();
     }
 
     /**
@@ -39,15 +45,14 @@ public class FrmActualizar extends javax.swing.JFrame {
         btnBusqueda1 = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
         txtApellidoP = new javax.swing.JTextField();
         txtApellidoM = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtMatricula = new javax.swing.JTextField();
-        txtFechaNacimiento = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btnGuardar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnRegistros1 = new javax.swing.JButton();
         btnBusqueda2 = new javax.swing.JButton();
@@ -91,38 +96,31 @@ public class FrmActualizar extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/actualizar.png"))); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Sitka Text", 0, 36)); // NOI18N
+        txtNombre.setBorder(null);
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 1470, 50));
+        jPanel1.add(txtApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 1300, 60));
+        jPanel1.add(txtApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 1300, 60));
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 590, 1450, 50));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 660, 1520, 60));
+
+        txtMatricula.setEditable(false);
+        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 740, 1450, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ModificarRegistro.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
-        txtNombre.setText("jTextField1");
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 1470, 50));
-
         btnGuardar.setText("jButton1");
+        btnGuardar.setBorder(null);
+        btnGuardar.setBorderPainted(false);
+        btnGuardar.setContentAreaFilled(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1650, 920, 160, 50));
-
-        txtApellidoP.setText("jTextField1");
-        jPanel1.add(txtApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 1300, 60));
-
-        txtApellidoM.setText("jTextField1");
-        jPanel1.add(txtApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 1300, 60));
-
-        txtDireccion.setText("jTextField1");
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 590, 1450, 50));
-
-        txtCorreo.setText("jTextField1");
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 660, 1520, 60));
-
-        txtMatricula.setText("jTextField1");
-        jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 740, 1450, 60));
-
-        txtFechaNacimiento.setText("jTextField1");
-        jPanel1.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 820, 650, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
         jLabel3.setText("jLabel1");
@@ -219,10 +217,30 @@ public class FrmActualizar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicio1ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        try {
+            alumnoDTO.setNombre(txtNombre.getText());
+            alumnoDTO.setApellido(txtApellidoP.getText() + " " + txtApellidoM.getText());
+            alumnoDTO.setCorreo(txtCorreo.getText());
+            alumnoDTO.setDireccion(txtDireccion.getText());
+            alumnoDTO.setMatricula(txtMatricula.getText());
+
+                crud.actualizarAlumno(alumnoDTO);
+            JOptionPane.showMessageDialog(this, "Se ha actualizado con éxito");
+        } catch (ControllerException ex) {
+            Logger.getLogger(FrmActualizar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    
+    public void cargarDatos() {
+
+        txtNombre.setText(alumnoDTO.getNombre());
+        txtApellidoP.setText(CrudAlumnoController.separarPalabras(alumnoDTO.getApellido())[0]);
+        txtApellidoM.setText(CrudAlumnoController.separarPalabras(alumnoDTO.getApellido())[1]);
+        txtCorreo.setText(alumnoDTO.getCorreo());
+        txtDireccion.setText(alumnoDTO.getDireccion());
+        txtMatricula.setText(alumnoDTO.getMatricula());
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBusqueda1;
@@ -240,7 +258,6 @@ public class FrmActualizar extends javax.swing.JFrame {
     private javax.swing.JTextField txtApellidoP;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

@@ -104,7 +104,7 @@ public class AlumnoDAOTest {
         Alumno alumno = new Alumno("Juan", "Pérez", "A123456", "juan.perez@example.com", "Calle Falsa 123, Ciudad, País");
 
         doNothing().when(mockTransaction).begin();
-        when(mockTransaction.isActive()).thenReturn(true);  // Asegura que la transacción esté activa
+        when(mockTransaction.isActive()).thenReturn(true); 
         doThrow(new RuntimeException()).when(mockEntityManager).persist(alumno);
         doNothing().when(mockTransaction).rollback();
 
@@ -112,8 +112,8 @@ public class AlumnoDAOTest {
             alumnoDAO.registrar(alumno);
         });
 
-        verify(mockTransaction, times(1)).rollback();  // Verifica que rollback() sea llamado
-        verify(mockEntityManager, times(1)).close();   // Verifica que EntityManager se cierre
+        verify(mockTransaction, times(1)).rollback();  
+        verify(mockEntityManager, times(1)).close();  
     }
 
     /**
@@ -126,12 +126,11 @@ public class AlumnoDAOTest {
         String matricula = "123";
         Alumno alumno = new Alumno("Juan", "Pérez", "12345", "juan.perez@example.com", "Calle Falsa 123, Ciudad, País");
 
-        // Configuración de mocks
+        
         when(mockEntityManager.getCriteriaBuilder()).thenReturn(mockCriteriaBuilder);
         when(mockCriteriaBuilder.createQuery(Alumno.class)).thenReturn(mockCriteriaQuery);
         when(mockCriteriaQuery.from(Alumno.class)).thenReturn(mockRoot);
-
-        // Crear un mock de Predicate para representar la condición del like
+        
         Predicate likePredicate = mock(Predicate.class);
         when(mockCriteriaBuilder.like(mockRoot.get("matricula"), "%" + matricula + "%")).thenReturn(likePredicate);
         when(mockCriteriaQuery.select(mockRoot)).thenReturn(mockCriteriaQuery);
@@ -141,10 +140,10 @@ public class AlumnoDAOTest {
         when(mockEntityManager.createQuery(mockCriteriaQuery)).thenReturn(mockTypedQuery);
         when(mockTypedQuery.getResultList()).thenReturn(Collections.singletonList(alumno));
 
-        // Ejecución del método bajo prueba
+        
         List<Alumno> alumnos = alumnoDAO.consultarPorMatricula(matricula);
 
-        // Verificación de resultados
+        
         assertNotNull(alumnos);
         assertEquals(1, alumnos.size());
         assertEquals("12345", alumnos.get(0).getMatricula());

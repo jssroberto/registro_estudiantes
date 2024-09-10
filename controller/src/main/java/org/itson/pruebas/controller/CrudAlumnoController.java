@@ -96,5 +96,34 @@ public class CrudAlumnoController implements ICrudAlumnoController{
         return alumno;
 
     }
+    
+    /**
+     * Separa los apellidos
+     * @param texto texto a separar
+     * @return Array de apellidos separados
+     */
+    public static String[] separarPalabras(String texto) {
+        if (texto == null || texto.trim().isEmpty()) {
+            return new String[]{"", ""}; // Devuelve un arreglo con dos strings vacíos si el texto es nulo o vacío
+        }
+
+        // Encuentra el índice del primer espacio en el texto
+        int espacioIndex = texto.indexOf(' ');
+        
+        // Si no se encuentra ningún espacio, devuelve el texto completo como la primera palabra
+        // y una cadena vacía como la segunda palabra
+        if (espacioIndex == -1) {
+            return new String[]{texto, ""};
+        }
+        
+        // Separa el texto en dos partes usando el índice del primer espacio
+        String primeraPalabra = texto.substring(0, espacioIndex).trim();
+        String segundaPalabra = texto.substring(espacioIndex + 1).trim();
+        
+        return new String[]{primeraPalabra, segundaPalabra};
+    }
+    
+    
+    
                                         
 }
