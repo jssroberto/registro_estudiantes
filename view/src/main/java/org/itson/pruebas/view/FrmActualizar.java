@@ -274,6 +274,9 @@ public class FrmActualizar extends javax.swing.JFrame {
                 if (validator.validarAlumno(alumnoDTO)) {
                     crud.actualizarAlumno(alumnoDTO);
                     JOptionPane.showMessageDialog(this, "Se ha actualizado con éxito");
+                    FrmBusquedaActualizar frm = new FrmBusquedaActualizar();
+                    frm.setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.");
                 }

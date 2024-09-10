@@ -208,7 +208,9 @@ public class FrmAgregar extends javax.swing.JFrame {
                 if (validator.validarAlumno(alumnoDTO)) {
                     crud.registrarAlumno(alumnoDTO);
                     JOptionPane.showMessageDialog(this, "Se ha agregado con éxito");
-                    
+                    FrmAgregar frm = new FrmAgregar();
+                    frm.setVisible(true);
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.");
                 }
