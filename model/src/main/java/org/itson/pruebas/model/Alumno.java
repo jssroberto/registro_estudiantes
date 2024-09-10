@@ -31,7 +31,7 @@ public class Alumno implements Serializable {
     @Column(name = "matricula", nullable = false, unique = true, length = 7)
     private String matricula;
 
-    @Column(name = "correo", nullable = false, unique = true, length = 100)
+    @Column(name = "correo", nullable = false, length = 100)
     private String correo;
 
     @Column(name = "direccion", length = 100)

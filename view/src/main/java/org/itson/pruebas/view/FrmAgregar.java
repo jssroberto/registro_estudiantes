@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.itson.pruebas.controller.AlumnoDTO;
+import org.itson.pruebas.controller.AlumnoValidator;
 import org.itson.pruebas.controller.CrudAlumnoController;
 import org.itson.pruebas.controller.ICrudAlumnoController;
 import org.itson.pruebas.controller.controllerExceptions.ControllerException;
@@ -190,24 +191,35 @@ public class FrmAgregar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicio1ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
         alumnoDTO.setNombre(txtNombre.getText());
         alumnoDTO.setApellido(txtApellidoP.getText() + " " + txtApellidoM.getText());
         alumnoDTO.setCorreo(txtCorreo.getText());
         alumnoDTO.setDireccion(txtDireccion.getText());
         alumnoDTO.setMatricula(txtMatricula.getText());
-        try {
-            if (txtNombre.getText() != null || txtApellidoP.getText() != null || txtApellidoM.getText() != null
-                    || txtCorreo.getText() != null || txtDireccion.getText() != null || txtMatricula.getText() != null) {
 
-                crud.registrarAlumno(alumnoDTO);
-                JOptionPane.showMessageDialog(this, "Se ha agregado con éxito");
+        AlumnoValidator validator = new AlumnoValidator();
+
+        try {
+            // Verifica que todos los campos estén llenos y que los datos sean válidos
+            if (!txtNombre.getText().isEmpty() && !txtApellidoP.getText().isEmpty() && !txtApellidoM.getText().isEmpty()
+                    && !txtCorreo.getText().isEmpty() && !txtDireccion.getText().isEmpty() && !txtMatricula.getText().isEmpty()) {
+
+                // Validar los datos
+                if (validator.validarAlumno(alumnoDTO)) {
+                    crud.registrarAlumno(alumnoDTO);
+                    JOptionPane.showMessageDialog(this, "Se ha agregado con éxito");
+                    
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.");
+                }
+
             } else {
-                JOptionPane.showMessageDialog(this, "Por favor llene todos los datos");
+                JOptionPane.showMessageDialog(this, "Por favor, llene todos los datos.");
             }
         } catch (ControllerException ex) {
             Logger.getLogger(FrmAgregar.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

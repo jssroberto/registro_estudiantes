@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.itson.pruebas.controller.AlumnoDTO;
+import org.itson.pruebas.controller.AlumnoValidator;
 import org.itson.pruebas.controller.CrudAlumnoController;
 import org.itson.pruebas.controller.ICrudAlumnoController;
 import org.itson.pruebas.controller.controllerExceptions.ControllerException;
@@ -255,15 +256,31 @@ public class FrmActualizar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicio1ActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        try {
-            alumnoDTO.setNombre(txtNombre.getText());
-            alumnoDTO.setApellido(txtApellidoP.getText() + " " + txtApellidoM.getText());
-            alumnoDTO.setCorreo(txtCorreo.getText());
-            alumnoDTO.setDireccion(txtDireccion.getText());
-            alumnoDTO.setMatricula(txtMatricula.getText());
+        AlumnoValidator validator = new AlumnoValidator();
 
-                crud.actualizarAlumno(alumnoDTO);
-            JOptionPane.showMessageDialog(this, "Se ha actualizado con éxito");
+        try {
+            // Verifica que todos los campos estén llenos
+            if (!txtNombre.getText().isEmpty() && !txtApellidoP.getText().isEmpty() && !txtApellidoM.getText().isEmpty()
+                    && !txtCorreo.getText().isEmpty() && !txtDireccion.getText().isEmpty() && !txtMatricula.getText().isEmpty()) {
+
+                // Establece los datos en el AlumnoDTO
+                alumnoDTO.setNombre(txtNombre.getText());
+                alumnoDTO.setApellido(txtApellidoP.getText() + " " + txtApellidoM.getText());
+                alumnoDTO.setCorreo(txtCorreo.getText());
+                alumnoDTO.setDireccion(txtDireccion.getText());
+                alumnoDTO.setMatricula(txtMatricula.getText());
+
+                // Validar los datos antes de actualizar
+                if (validator.validarAlumno(alumnoDTO)) {
+                    crud.actualizarAlumno(alumnoDTO);
+                    JOptionPane.showMessageDialog(this, "Se ha actualizado con éxito");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Por favor, llene todos los datos.");
+            }
         } catch (ControllerException ex) {
             Logger.getLogger(FrmActualizar.class.getName()).log(Level.SEVERE, null, ex);
         }
