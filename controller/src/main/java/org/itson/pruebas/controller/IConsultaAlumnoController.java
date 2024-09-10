@@ -21,7 +21,7 @@ public interface IConsultaAlumnoController {
      * @return Lista de alumnos que coinciden con la búsqueda.
      * @throws ControllerException Si ocurre un error en la consulta.
      */
-    List<Alumno> consultarPorMatricula(String matricula) throws ControllerException;
+    List<AlumnoDTO> consultarPorMatricula(String matricula) throws ControllerException;
 
     /**
      * Consulta alumnos por nombre.
@@ -30,6 +30,9 @@ public interface IConsultaAlumnoController {
      * @return Lista de alumnos que coinciden con la búsqueda.
      * @throws ControllerException Si ocurre un error en la consulta.
      */
-    List<Alumno> consultarPorNombre(String nombre) throws ControllerException;
+    List<AlumnoDTO> consultarPorNombre(String nombre) throws ControllerException;
+    
+    
+    public AlumnoDTO convertirADTO(Alumno alumno);
 
 }

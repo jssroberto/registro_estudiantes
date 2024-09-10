@@ -4,8 +4,10 @@
  */
 package org.itson.pruebas.view;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.itson.pruebas.controller.AlumnoDTO;
 import org.itson.pruebas.controller.ConsultaAlumnoController;
 import org.itson.pruebas.controller.IConsultaAlumnoController;
 import org.itson.pruebas.controller.controllerExceptions.ControllerException;
@@ -16,12 +18,13 @@ import org.itson.pruebas.controller.controllerExceptions.ControllerException;
  */
 public class FrmBusqueda extends javax.swing.JFrame {
 
-    IConsultaAlumnoController con = new ConsultaAlumnoController();
+    IConsultaAlumnoController consultas;
     /**
      * Creates new form frmInicioElegirRegistro
      */
     public FrmBusqueda() {
         initComponents();
+        consultas = new ConsultaAlumnoController();
     }
 
     /**
@@ -49,15 +52,26 @@ public class FrmBusqueda extends javax.swing.JFrame {
 
         tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellidos", "Matricula", "Correo", "Direccion"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tablaAlumnos.setEnabled(false);
+        tablaAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaAlumnosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaAlumnos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 1650, 510));
@@ -149,32 +163,43 @@ public class FrmBusqueda extends javax.swing.JFrame {
     private void txtDatosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosKeyTyped
         // TODO add your handling code here:
         try{
-        con.consultarPorMatricula(txtDatos.getText());
-        con.consultarPorNombre(txtDatos.getText());
+            actualizarTablaAlumnos(consultas.consultarPorMatricula(txtDatos.getText()));
+            if(consultas.consultarPorMatricula(txtDatos.getText()).size()<1){
+            actualizarTablaAlumnos(consultas.consultarPorNombre(txtDatos.getText()));
+            }
         }catch(ControllerException e){
             JOptionPane.showMessageDialog(this, e);
         }
     }//GEN-LAST:event_txtDatosKeyTyped
 
-     public TablaAlumnos(List<AlumnoDTO> alumnos) {
-       
+    private void tablaAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaAlumnosMouseClicked
+    
+    }//GEN-LAST:event_tablaAlumnosMouseClicked
 
-        // Crear el modelo de la tabla con los nombres de las columnas
-        String[] columnas = {"ID", "Nombre", "Apellido", "Matrícula", "Correo", "Dirección"};
-        tablaAlumnos = new DefaultTableModel(columnas, 0);
+      // Método para actualizar los datos de la tabla
+public void actualizarTablaAlumnos(List<AlumnoDTO> alumnos) {
+   
+    DefaultTableModel modelo = (DefaultTableModel) tablaAlumnos.getModel();
 
-        // Llenar el modelo de la tabla con los datos de los alumnos
-        for (Alumno alumno : alumnos) {
-            Object[] fila = {
-                alumno.getId(),
-                alumno.getNombre(),
-                alumno.getApellido(),
-                alumno.getMatricula(),
-                alumno.getCorreo(),
-                alumno.getDireccion()
-            };
-            tablaAlumnos.addRow(fila);
-        }
+    modelo.setRowCount(0);
+
+    for (AlumnoDTO alumno : alumnos) {
+        Object[] fila = {          // ID
+            alumno.getNombre(),
+            alumno.getApellido(),
+            alumno.getMatricula(),
+            alumno.getCorreo(),
+            alumno.getDireccion()
+        };
+        modelo.addRow(fila);
+        
+        
+    }
+    
+}
+
+
+
     /**
      * @param args the command line arguments
      */

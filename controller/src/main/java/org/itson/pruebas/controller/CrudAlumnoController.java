@@ -5,6 +5,7 @@
 package org.itson.pruebas.controller;
 
 import org.itson.pruebas.controller.controllerExceptions.ControllerException;
+import org.itson.pruebas.daos.AlumnoDAO;
 import org.itson.pruebas.daos.IAlumnoDAO;
 import org.itson.pruebas.exceptions.ModelException;
 import org.itson.pruebas.model.Alumno;
@@ -16,8 +17,8 @@ public class CrudAlumnoController implements ICrudAlumnoController{
 
     private final IAlumnoDAO alumnoDAO;
 
-    public CrudAlumnoController(IAlumnoDAO alumnoDAO){
-        this.alumnoDAO = alumnoDAO;
+    public CrudAlumnoController(){
+        alumnoDAO = new AlumnoDAO();
     }
 
     /**

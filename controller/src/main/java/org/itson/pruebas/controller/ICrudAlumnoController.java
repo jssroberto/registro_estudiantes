@@ -5,7 +5,6 @@
 package org.itson.pruebas.controller;
 
 import org.itson.pruebas.controller.controllerExceptions.ControllerException;
-import org.itson.pruebas.exceptions.ModelException;
 import org.itson.pruebas.model.Alumno;
 /**
  *

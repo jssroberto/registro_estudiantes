@@ -44,7 +44,6 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         jLabel1.setFocusable(false);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
 
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicia sesión (2).png"))); // NOI18N
         btnActualizar.setText("jButton1");
         btnActualizar.setBorder(null);
         btnActualizar.setBorderPainted(false);
@@ -91,7 +90,6 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicia sesión (2).png"))); // NOI18N
         btnAgregar.setText("jButton1");
         btnAgregar.setBorder(null);
         btnAgregar.setBorderPainted(false);
@@ -104,7 +102,6 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 490, 320, 120));
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Inicia sesión (2).png"))); // NOI18N
         btnEliminar.setText("jButton1");
         btnEliminar.setBorder(null);
         btnEliminar.setBorderPainted(false);
