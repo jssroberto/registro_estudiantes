@@ -209,7 +209,7 @@ public class AlumnoDAO implements IAlumnoDAO {
             entityManager = this.conexion.crearConexion();
             transaction = entityManager.getTransaction();
             transaction.begin();
-            Alumno alumnoAEliminar = entityManager.find(Alumno.class, alumno.getMatricula());
+            Alumno alumnoAEliminar = entityManager.find(Alumno.class, alumno.getId());
             if (alumnoAEliminar != null) {
                 entityManager.remove(alumnoAEliminar);
             }
