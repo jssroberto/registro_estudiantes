@@ -6,6 +6,7 @@ package org.itson.pruebas.controller;
 
 public class AlumnoDTO {
 
+    private Long id;
     private String nombre;
     private String apellido;
     private String matricula;
@@ -21,6 +22,14 @@ public class AlumnoDTO {
         this.matricula = matricula;
         this.correo = correo;
         this.direccion = direccion;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {

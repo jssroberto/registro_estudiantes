@@ -84,7 +84,7 @@ public class CrudAlumnoController implements ICrudAlumnoController{
             if (alumnoDTO == null) {
                 return null;
             }
-
+            alumno.setId(alumnoDTO.getId());
             alumno.setNombre(alumnoDTO.getNombre());
             alumno.setApellido(alumnoDTO.getApellido());
             alumno.setMatricula(alumnoDTO.getMatricula());

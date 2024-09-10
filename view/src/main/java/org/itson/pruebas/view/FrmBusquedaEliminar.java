@@ -46,8 +46,8 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaAlumnos = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         txtDatos = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnRegistros1 = new javax.swing.JButton();
         btnBusqueda1 = new javax.swing.JButton();
@@ -68,9 +68,16 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tablaAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,17 +89,16 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 1650, 510));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BuscarEliminar.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
-
-        txtDatos.setText("jTextField1");
         txtDatos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDatosKeyTyped(evt);
             }
         });
         jPanel1.add(txtDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1610, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BuscarEliminar.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -171,14 +177,20 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
         int selectedRow = tablaAlumnos.getSelectedRow();
         if (selectedRow != -1) {
             // Obtener los datos de la fila seleccionada
-            String matricula = tablaAlumnos.getValueAt(selectedRow, 0).toString();
-            String nombre = tablaAlumnos.getValueAt(selectedRow, 1).toString();
-            String apellido = tablaAlumnos.getValueAt(selectedRow, 2).toString();
+            String nombre = tablaAlumnos.getValueAt(selectedRow, 0).toString();
+            String apellido = tablaAlumnos.getValueAt(selectedRow, 1).toString();
+            String matricula = tablaAlumnos.getValueAt(selectedRow, 2).toString();
             String correo = tablaAlumnos.getValueAt(selectedRow, 3).toString();
             String direccion = tablaAlumnos.getValueAt(selectedRow, 4).toString();
 
             // Crear el DTO con los datos seleccionados
             AlumnoDTO alumnoDTO = new AlumnoDTO(matricula, nombre, apellido, correo, direccion);
+            try {
+                consultas.consultarPorMatricula(matricula);
+                alumnoDTO.setId(consultas.consultarPorMatricula(matricula).get(0).getId());
+            } catch (ControllerException ex) {
+                Logger.getLogger(FrmBusquedaEliminar.class.getName()).log(Level.SEVERE, null, ex);
+            }
             try {
                 String mensaje = """
                                  \u00bfEst\u00e1s seguro de que deseas eliminar al siguiente alumno?
@@ -197,6 +209,7 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
                 );
                 if(respuesta==JOptionPane.YES_OPTION){
                 crud.eliminarAlumno(alumnoDTO);
+                JOptionPane.showMessageDialog(this, "Se ha eliminado con éxito");
                 }
 
             } catch (ControllerException ex) {

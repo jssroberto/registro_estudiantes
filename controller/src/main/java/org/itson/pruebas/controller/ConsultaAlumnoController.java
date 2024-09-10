@@ -38,7 +38,7 @@ public class ConsultaAlumnoController implements IConsultaAlumnoController {
         try {
             for (int i = 0; i < alumnoDAO.consultarPorMatricula(matricula).size(); i++) {
 
-                alumnos.add(convertirADTO(alumnoDAO.consultarPorMatricula(matricula).get(i)));
+alumnos.add(convertirADTO(alumnoDAO.consultarPorMatricula(matricula).get(i)));
             }
         } catch (ModelException e) {
             throw new ControllerException(e);
@@ -80,6 +80,7 @@ public class ConsultaAlumnoController implements IConsultaAlumnoController {
         }
 
         AlumnoDTO dto = new AlumnoDTO();
+        dto.setId(alumno.getId());
         dto.setNombre(alumno.getNombre());
         dto.setApellido(alumno.getApellido());
         dto.setMatricula(alumno.getMatricula());
