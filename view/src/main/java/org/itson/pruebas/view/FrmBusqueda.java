@@ -5,8 +5,10 @@
 package org.itson.pruebas.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import org.itson.pruebas.controller.ConsultaAlumnoController;
 import org.itson.pruebas.controller.IConsultaAlumnoController;
+import org.itson.pruebas.controller.controllerExceptions.ControllerException;
 
 /**
  *
@@ -33,7 +35,7 @@ public class FrmBusqueda extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaAlumnos = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtDatos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -45,7 +47,7 @@ public class FrmBusqueda extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,7 +58,7 @@ public class FrmBusqueda extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaAlumnos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 1650, 510));
 
@@ -154,6 +156,25 @@ public class FrmBusqueda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtDatosKeyTyped
 
+     public TablaAlumnos(List<AlumnoDTO> alumnos) {
+       
+
+        // Crear el modelo de la tabla con los nombres de las columnas
+        String[] columnas = {"ID", "Nombre", "Apellido", "Matrícula", "Correo", "Dirección"};
+        tablaAlumnos = new DefaultTableModel(columnas, 0);
+
+        // Llenar el modelo de la tabla con los datos de los alumnos
+        for (Alumno alumno : alumnos) {
+            Object[] fila = {
+                alumno.getId(),
+                alumno.getNombre(),
+                alumno.getApellido(),
+                alumno.getMatricula(),
+                alumno.getCorreo(),
+                alumno.getDireccion()
+            };
+            tablaAlumnos.addRow(fila);
+        }
     /**
      * @param args the command line arguments
      */
@@ -198,7 +219,7 @@ public class FrmBusqueda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaAlumnos;
     private javax.swing.JTextField txtDatos;
     // End of variables declaration//GEN-END:variables
 }
