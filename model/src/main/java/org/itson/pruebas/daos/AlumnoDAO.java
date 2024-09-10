@@ -30,9 +30,11 @@ public class AlumnoDAO implements IAlumnoDAO {
     /**
      * Constructor que inicializa la conexión a la base de datos utilizando la
      * implementación por defecto de {@link IConexion}.
+     * 
+     * @param conexion Inyección de implementación de {@link IConexion}
      */
-    public AlumnoDAO() {
-        this.conexion = new Conexion();
+    public AlumnoDAO(IConexion conexion) {
+        this.conexion = conexion; 
     }
 
     /**
@@ -56,7 +58,7 @@ public class AlumnoDAO implements IAlumnoDAO {
             if (transaction != null && transaction.isActive()) {
                 transaction.rollback();
             }
-            throw new ModelException("Error al registrar el alumno: " + alumno.getMatricula(), e);
+            throw new ModelException("Error al registrar el alumno con matrícula: " + alumno.getMatricula(), e);
         } finally {
             if (entityManager != null) {
                 entityManager.close();
@@ -64,10 +66,10 @@ public class AlumnoDAO implements IAlumnoDAO {
         }
     }
 
-     /**
+    /**
      * Consulta alumnos en la base de datos cuya matrícula coincida parcialmente
      * con la cadena proporcionada.
-     * 
+     *
      * @param matricula La matrícula (o parte de ella) a buscar.
      * @return Una lista de alumnos que coinciden con la búsqueda.
      * @throws ModelException Si ocurre un error durante la consulta.
@@ -97,10 +99,10 @@ public class AlumnoDAO implements IAlumnoDAO {
         return alumnos;
     }
 
-      /**
-     * Consulta alumnos en la base de datos cuyo nombre coincida parcialmente 
+    /**
+     * Consulta alumnos en la base de datos cuyo nombre coincida parcialmente
      * con la cadena proporcionada.
-     * 
+     *
      * @param nombre El nombre (o parte de él) a buscar.
      * @return Una lista de alumnos que coinciden con la búsqueda.
      * @throws ModelException Si ocurre un error durante la consulta.
@@ -119,7 +121,7 @@ public class AlumnoDAO implements IAlumnoDAO {
             TypedQuery<Alumno> query = em.createQuery(criteriaQuery);
             alumnos = query.getResultList();
         } catch (Exception e) {
-            throw new ModelException("Error al consultar a los alumnos con matrícula: " + nombre, e);
+            throw new ModelException("Error al consultar a los alumnos con nombre: " + nombre, e);
         } finally {
             if (em != null) {
                 em.close();
@@ -129,12 +131,44 @@ public class AlumnoDAO implements IAlumnoDAO {
         return alumnos;
     }
 
-    
+    /**
+     * Consulta todos los alumnos que esten registrados en la base de datos.
+     *
+     * @return Una lista de todos los alumnos registrados.
+     * @throws ModelException Si ocurre un error al consultar los alumnos.
+     */
+    @Override
+    public List<Alumno> consultarTodos() throws ModelException {
+        EntityManager entityManager = null;
+        List<Alumno> alumnos = null;
+
+        try {
+            entityManager = this.conexion.crearConexion();
+            CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+            CriteriaQuery<Alumno> criteriaQuery = cb.createQuery(Alumno.class);
+            Root<Alumno> root = criteriaQuery.from(Alumno.class);
+            criteriaQuery.select(root);
+            TypedQuery<Alumno> query = entityManager.createQuery(criteriaQuery);
+            alumnos = query.getResultList();
+
+        } catch (Exception e) {
+            throw new ModelException("Error al consultar a los alumnos", e);
+        } finally {
+            if (entityManager != null) {
+                entityManager.close();
+            }
+        }
+
+        return alumnos;
+    }
+
     /**
      * Actualiza la información de un alumno en la base de datos.
-     * 
-     * @param alumno La instancia de {@link Alumno} con la información actualizada.
-     * @throws ModelException Si ocurre un error durante la actualización del alumno.
+     *
+     * @param alumno La instancia de {@link Alumno} con la información
+     * actualizada.
+     * @throws ModelException Si ocurre un error durante la actualización del
+     * alumno.
      */
     @Override
     public void actualizar(Alumno alumno) throws ModelException {
@@ -159,12 +193,12 @@ public class AlumnoDAO implements IAlumnoDAO {
         }
     }
 
-    
     /**
      * Elimina un alumno de la base de datos.
-     * 
+     *
      * @param alumno La instancia de {@link Alumno} que se desea eliminar.
-     * @throws ModelException Si ocurre un error durante la eliminación del alumno.
+     * @throws ModelException Si ocurre un error durante la eliminación del
+     * alumno.
      */
     @Override
     public void eliminar(Alumno alumno) throws ModelException {

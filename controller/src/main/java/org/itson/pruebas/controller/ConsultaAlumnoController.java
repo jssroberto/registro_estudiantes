@@ -7,6 +7,7 @@ package org.itson.pruebas.controller;
 import java.util.List;
 import org.itson.pruebas.controller.controllerExceptions.ControllerException;
 import org.itson.pruebas.daos.AlumnoDAO;
+import org.itson.pruebas.daos.Conexion;
 import org.itson.pruebas.daos.IAlumnoDAO;
 import org.itson.pruebas.exceptions.ModelException;
 import org.itson.pruebas.model.Alumno;
@@ -21,7 +22,7 @@ public class ConsultaAlumnoController implements IConsultaAlumnoController{
 
     
     public ConsultaAlumnoController() {
-        alumnoDAO = new AlumnoDAO();
+        alumnoDAO = new AlumnoDAO(new Conexion());
     }
 
     /**
