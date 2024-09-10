@@ -47,11 +47,11 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaAlumnos = new javax.swing.JTable();
         txtDatos = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         btnRegistros1 = new javax.swing.JButton();
         btnBusqueda1 = new javax.swing.JButton();
         btnInicio1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +89,12 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 1650, 510));
 
+        txtDatos.setBackground(new java.awt.Color(0, 88, 153));
+        txtDatos.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtDatos.setForeground(new java.awt.Color(255, 255, 255));
+        txtDatos.setBorder(null);
+        txtDatos.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtDatos.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtDatos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDatosKeyTyped(evt);
@@ -96,18 +102,10 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
         });
         jPanel1.add(txtDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1610, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BuscarEliminar.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
-
-        btnRegistros1.setText("jButton1");
         btnRegistros1.setBorder(null);
         btnRegistros1.setBorderPainted(false);
         btnRegistros1.setContentAreaFilled(false);
+        btnRegistros1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistros1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistros1ActionPerformed(evt);
@@ -115,10 +113,10 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
 
-        btnBusqueda1.setText("jButton1");
         btnBusqueda1.setBorder(null);
         btnBusqueda1.setBorderPainted(false);
         btnBusqueda1.setContentAreaFilled(false);
+        btnBusqueda1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBusqueda1ActionPerformed(evt);
@@ -126,16 +124,23 @@ public class FrmBusquedaEliminar extends javax.swing.JFrame {
         });
         jPanel1.add(btnBusqueda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
 
-        btnInicio1.setText("jButton1");
         btnInicio1.setBorder(null);
         btnInicio1.setBorderPainted(false);
         btnInicio1.setContentAreaFilled(false);
+        btnInicio1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicio1ActionPerformed(evt);
             }
         });
         jPanel1.add(btnInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/busqueda.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
+
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

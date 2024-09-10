@@ -51,12 +51,12 @@ public class FrmActualizar extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtMatricula = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         btnRegistros1 = new javax.swing.JButton();
         btnBusqueda2 = new javax.swing.JButton();
         btnInicio1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -96,25 +96,59 @@ public class FrmActualizar extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNombre.setFont(new java.awt.Font("Sitka Text", 0, 36)); // NOI18N
+        txtNombre.setBackground(new java.awt.Color(164, 196, 220));
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
         txtNombre.setBorder(null);
+        txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtNombre.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 1470, 50));
+
+        txtApellidoP.setBackground(new java.awt.Color(164, 196, 220));
+        txtApellidoP.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtApellidoP.setForeground(new java.awt.Color(255, 255, 255));
+        txtApellidoP.setBorder(null);
+        txtApellidoP.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtApellidoP.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 1300, 60));
+
+        txtApellidoM.setBackground(new java.awt.Color(164, 196, 220));
+        txtApellidoM.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtApellidoM.setForeground(new java.awt.Color(255, 255, 255));
+        txtApellidoM.setBorder(null);
+        txtApellidoM.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtApellidoM.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 1300, 60));
+
+        txtDireccion.setBackground(new java.awt.Color(164, 196, 220));
+        txtDireccion.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setBorder(null);
+        txtDireccion.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtDireccion.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 590, 1450, 50));
+
+        txtCorreo.setBackground(new java.awt.Color(164, 196, 220));
+        txtCorreo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        txtCorreo.setBorder(null);
+        txtCorreo.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtCorreo.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 660, 1520, 60));
 
         txtMatricula.setEditable(false);
+        txtMatricula.setBackground(new java.awt.Color(164, 196, 220));
+        txtMatricula.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtMatricula.setForeground(new java.awt.Color(255, 255, 255));
+        txtMatricula.setBorder(null);
+        txtMatricula.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtMatricula.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 740, 1450, 60));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ModificarRegistro.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
-
-        btnGuardar.setText("jButton1");
         btnGuardar.setBorder(null);
         btnGuardar.setBorderPainted(false);
         btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -122,14 +156,10 @@ public class FrmActualizar extends javax.swing.JFrame {
         });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1650, 920, 160, 50));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
-        jLabel3.setText("jLabel1");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
-
-        btnRegistros1.setText("jButton1");
         btnRegistros1.setBorder(null);
         btnRegistros1.setBorderPainted(false);
         btnRegistros1.setContentAreaFilled(false);
+        btnRegistros1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistros1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistros1ActionPerformed(evt);
@@ -137,10 +167,10 @@ public class FrmActualizar extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
 
-        btnBusqueda2.setText("jButton1");
         btnBusqueda2.setBorder(null);
         btnBusqueda2.setBorderPainted(false);
         btnBusqueda2.setContentAreaFilled(false);
+        btnBusqueda2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda2.setFocusPainted(false);
         btnBusqueda2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,16 +179,24 @@ public class FrmActualizar extends javax.swing.JFrame {
         });
         jPanel1.add(btnBusqueda2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
 
-        btnInicio1.setText("jButton1");
         btnInicio1.setBorder(null);
         btnInicio1.setBorderPainted(false);
         btnInicio1.setContentAreaFilled(false);
+        btnInicio1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicio1ActionPerformed(evt);
             }
         });
         jPanel1.add(btnInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modificarregistro.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
+        jLabel3.setText("jLabel1");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

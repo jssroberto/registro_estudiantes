@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Timeout;
  * @author elimo
  */
 public class AlumnoDAORendimientoTest {
-    
+
     private AlumnoDAO alumnoDAO;
 
     @BeforeEach
@@ -30,12 +30,12 @@ public class AlumnoDAORendimientoTest {
     }
 
     @Test
-    @Timeout(30) 
+    @Timeout(30)
     public void testRegistrarPerformance() throws ModelException {
         long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < 400; i++) { // Crear 1000 alumnos
-            Alumno alumno = new Alumno("Nombre" + i, "Apellido" + i, "correo" + i + "@example.com", "Dirección" + i, "Matricula" + i);
+            Alumno alumno = new Alumno("Nombre" + i, "Apellido" + i, "000" + i, "correo" + i + "@example.com", "Dirección" + i);
             alumnoDAO.registrar(alumno);
         }
 
@@ -47,13 +47,13 @@ public class AlumnoDAORendimientoTest {
     @Timeout(30)
     public void testConsultarPorMatriculaPerformance() throws ModelException {
         for (int i = 0; i < 1000; i++) {
-            Alumno alumno = new Alumno("Nombre" + i, "Apellido" + i, "correo" + i + "@example.com", "Dirección" + i, "Matricula" + i);
+            Alumno alumno = new Alumno("Nombre" + i, "Apellido" + i, "0000" + i, "correo" + i + "@example2.com", "Dirección" + i);
             alumnoDAO.registrar(alumno);
         }
 
         long startTime = System.currentTimeMillis();
 
-        List<Alumno> alumnos = alumnoDAO.consultarPorMatricula("Matricula");
+        List<Alumno> alumnos = alumnoDAO.consultarPorMatricula("5645462");
         assertNotNull(alumnos);
 
         long endTime = System.currentTimeMillis();
@@ -64,7 +64,7 @@ public class AlumnoDAORendimientoTest {
     @Timeout(30)
     public void testActualizarPerformance() throws ModelException {
         // Precondiciones: Insertar datos de prueba
-        Alumno alumno = new Alumno("Nombre", "Apellido", "correo@example.com", "Dirección", "Matricula");
+        Alumno alumno = new Alumno("Nombre", "Apellido", "5645462", "correo@example.com", "Dirección");
         alumnoDAO.registrar(alumno);
 
         long startTime = System.currentTimeMillis();
@@ -79,7 +79,7 @@ public class AlumnoDAORendimientoTest {
     @Test
     @Timeout(30)
     public void testEliminarPerformance() throws ModelException {
-        Alumno alumno = new Alumno("Nombre", "Apellido", "correo@example.com", "Dirección", "Matricula");
+        Alumno alumno = new Alumno("Nombre", "Apellido", "5645462", "correo@example.com", "Dirección");
         alumnoDAO.registrar(alumno);
 
         long startTime = System.currentTimeMillis();
@@ -90,5 +90,3 @@ public class AlumnoDAORendimientoTest {
         System.out.println("Tiempo de eliminación: " + (endTime - startTime) + " milisegundos");
     }
 }
-    
-

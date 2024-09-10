@@ -29,23 +29,19 @@ public class FrmInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnRegistros = new javax.swing.JButton();
         btnBusqueda = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
-
-        btnRegistros.setText("jButton1");
         btnRegistros.setBorder(null);
         btnRegistros.setBorderPainted(false);
         btnRegistros.setContentAreaFilled(false);
+        btnRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrosActionPerformed(evt);
@@ -53,10 +49,10 @@ public class FrmInicio extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
 
-        btnBusqueda.setText("jButton1");
         btnBusqueda.setBorder(null);
         btnBusqueda.setBorderPainted(false);
         btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda.setFocusPainted(false);
         btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,16 +61,20 @@ public class FrmInicio extends javax.swing.JFrame {
         });
         jPanel1.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
 
-        btnInicio.setText("jButton1");
         btnInicio.setBorder(null);
         btnInicio.setBorderPainted(false);
         btnInicio.setContentAreaFilled(false);
+        btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
             }
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IniciaSesión1.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

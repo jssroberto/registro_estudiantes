@@ -51,31 +51,64 @@ public class FrmAgregar extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtMatricula = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        brnBuscar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         btnRegistros1 = new javax.swing.JButton();
         btnBusqueda1 = new javax.swing.JButton();
         btnInicio1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtNombre.setBackground(new java.awt.Color(164, 196, 220));
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombre.setBorder(null);
+        txtNombre.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 1470, 50));
+
+        txtApellidoP.setBackground(new java.awt.Color(164, 196, 220));
+        txtApellidoP.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtApellidoP.setForeground(new java.awt.Color(255, 255, 255));
+        txtApellidoP.setBorder(null);
+        txtApellidoP.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 1300, 60));
+
+        txtApellidoM.setBackground(new java.awt.Color(164, 196, 220));
+        txtApellidoM.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtApellidoM.setForeground(new java.awt.Color(255, 255, 255));
+        txtApellidoM.setBorder(null);
+        txtApellidoM.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 1300, 50));
+
+        txtDireccion.setBackground(new java.awt.Color(164, 196, 220));
+        txtDireccion.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setBorder(null);
+        txtDireccion.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 590, 1450, 50));
+
+        txtCorreo.setBackground(new java.awt.Color(164, 196, 220));
+        txtCorreo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        txtCorreo.setBorder(null);
+        txtCorreo.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 660, 1520, 60));
+
+        txtMatricula.setEditable(false);
+        txtMatricula.setBackground(new java.awt.Color(164, 196, 220));
+        txtMatricula.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtMatricula.setForeground(new java.awt.Color(255, 255, 255));
+        txtMatricula.setBorder(null);
+        txtMatricula.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtMatricula.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 740, 1450, 60));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agregarRegistro.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
-
-        brnBuscar.setText("jButton1");
-        jPanel1.add(brnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, 60));
-
-        btnGuardar.setText("jButton1");
+        btnGuardar.setBorder(null);
+        btnGuardar.setBorderPainted(false);
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -83,10 +116,10 @@ public class FrmAgregar extends javax.swing.JFrame {
         });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1650, 920, 160, 50));
 
-        btnRegistros1.setText("jButton1");
         btnRegistros1.setBorder(null);
         btnRegistros1.setBorderPainted(false);
         btnRegistros1.setContentAreaFilled(false);
+        btnRegistros1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistros1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistros1ActionPerformed(evt);
@@ -94,10 +127,10 @@ public class FrmAgregar extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
 
-        btnBusqueda1.setText("jButton1");
         btnBusqueda1.setBorder(null);
         btnBusqueda1.setBorderPainted(false);
         btnBusqueda1.setContentAreaFilled(false);
+        btnBusqueda1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBusqueda1ActionPerformed(evt);
@@ -105,16 +138,21 @@ public class FrmAgregar extends javax.swing.JFrame {
         });
         jPanel1.add(btnBusqueda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
 
-        btnInicio1.setText("jButton1");
         btnInicio1.setBorder(null);
         btnInicio1.setBorderPainted(false);
         btnInicio1.setContentAreaFilled(false);
+        btnInicio1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicio1ActionPerformed(evt);
             }
         });
         jPanel1.add(btnInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
+
+        jLabel2.setForeground(new java.awt.Color(164, 196, 220));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/agregar (3).png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, -1, 1930, 1090));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,7 +253,6 @@ public class FrmAgregar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnBuscar;
     private javax.swing.JButton btnBusqueda1;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnInicio1;

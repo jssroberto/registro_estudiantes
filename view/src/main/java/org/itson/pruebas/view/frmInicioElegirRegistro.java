@@ -27,27 +27,22 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnActualizar = new javax.swing.JButton();
         btnRegistros = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
         btnBusqueda = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elegirRegistro.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setFocusable(false);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
-
-        btnActualizar.setText("jButton1");
         btnActualizar.setBorder(null);
         btnActualizar.setBorderPainted(false);
         btnActualizar.setContentAreaFilled(false);
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnActualizar.setFocusPainted(false);
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,10 +51,10 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 350, 320, 120));
 
-        btnRegistros.setText("jButton1");
         btnRegistros.setBorder(null);
         btnRegistros.setBorderPainted(false);
         btnRegistros.setContentAreaFilled(false);
+        btnRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrosActionPerformed(evt);
@@ -67,10 +62,10 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 50, 320, 100));
 
-        btnInicio.setText("jButton1");
         btnInicio.setBorder(null);
         btnInicio.setBorderPainted(false);
         btnInicio.setContentAreaFilled(false);
+        btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
@@ -78,10 +73,10 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 200, 100));
 
-        btnBusqueda.setText("jButton1");
         btnBusqueda.setBorder(null);
         btnBusqueda.setBorderPainted(false);
         btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda.setFocusPainted(false);
         btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,10 +85,10 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(btnBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1520, 50, 310, 100));
 
-        btnAgregar.setText("jButton1");
         btnAgregar.setBorder(null);
         btnAgregar.setBorderPainted(false);
         btnAgregar.setContentAreaFilled(false);
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregar.setFocusPainted(false);
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,10 +97,10 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
         });
         jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 490, 320, 120));
 
-        btnEliminar.setText("jButton1");
         btnEliminar.setBorder(null);
         btnEliminar.setBorderPainted(false);
         btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.setFocusPainted(false);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +108,11 @@ public class FrmInicioElegirRegistro extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 220, 320, 120));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elegirRegistro.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setFocusable(false);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 1920, 1090));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
